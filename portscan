@@ -1,0 +1,17 @@
+Clear-Host
+$WarningPreference = "silentlycontinue"
+$ErrorActionPreference = "silentlycontinue"
+$count = [int]0
+
+for($i = 130; $i -le 140; $i++){
+    $p = test-netconnection localhost -port $i
+    $q = get-nettcpconnection -localport 130
+
+    if ($p.TcpTestSucceeded){
+        $count++
+        write-output $p.TcpTestSucceeded
+        write-output $q
+    }
+    }
+
+    write-output $count 
