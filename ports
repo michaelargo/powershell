@@ -1,0 +1,12 @@
+$system_ports = get-nettcpconnection -state listen
+
+$text_port = get-content -path c:\users\administrator\desktop\ports.txt
+
+foreach($port in $text_port){
+
+    if($port -in $system_ports.localport){
+        echo $port
+        }
+
+    }
+
